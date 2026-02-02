@@ -69,7 +69,7 @@ pnpm run e2e
 
 ## Final report (production-ready checklist)
 
-- **Public Vercel URL**: Deploy via Vercel (connect repo or `vercel` CLI). Set env: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, optional Sentry DSN. Run migrations against your Supabase project.
+- **Public Vercel URL**: Repo is connected; set **Root Directory** to `apps/web` in Vercel project settings, add env vars (see [DEPLOY.md](DEPLOY.md)), then redeploy.
 - **Plugin artifact path**: `apps/woo-plugin/dist/merchant-connector.zip`. Install/pairing: see "Plugin artifact" above.
 - **PowerShell commands** (Windows):
   - `pnpm install`
