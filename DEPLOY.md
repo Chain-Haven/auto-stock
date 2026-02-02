@@ -1,4 +1,12 @@
-# Deploy setup (done for you)
+# Deploy setup — COMPLETE ✓
+
+## Production URLs
+
+| Service | URL |
+|---------|-----|
+| **App** | https://auto-stock.vercel.app |
+| **Supabase** | https://xyozzvvfemvudtfauvss.supabase.co |
+| **GitHub** | https://github.com/Chain-Haven/auto-stock |
 
 ## 1. GitHub
 
@@ -9,32 +17,55 @@
 
 - **Project:** auto-stock (id: `xyozzvvfemvudtfauvss`)
 - **URL:** https://xyozzvvfemvudtfauvss.supabase.co
-- **Anon key (legacy):** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5b3p6dnZmZW12dWR0ZmF1dnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwMzg2NzAsImV4cCI6MjA4NTYxNDY3MH0.MfKYAs_wA1gnGSDj0SpBfhck-poaPPD_qPU_dlu6Hts`
-- **Migrations:** All 10 migrations have been applied (profiles, organizations, connections_stores, catalog_products_inventory, quotes_pos, jobs_shipments_invoices, integrations_audit, inventory_ledger, capacity, po_stages_collab).
+- **Status:** ACTIVE_HEALTHY
+- **Migrations:** All 10 migrations applied:
+  1. profiles
+  2. organizations
+  3. connections_stores
+  4. catalog_products_inventory
+  5. quotes_pos
+  6. jobs_shipments_invoices
+  7. integrations_audit
+  8. inventory_ledger
+  9. capacity
+  10. po_stages_collab
 
 ## 3. Vercel
 
 - **Project:** auto-stock (chain-havens-projects)
-- **Inspect (last deploy):** https://vercel.com/chain-havens-projects/auto-stock/6DMMZ7FFChVVhe5UQz5tX69mWVLM
-- **Preview URL from that deploy:** https://auto-stock-abay73mpr-chain-havens-projects.vercel.app (build succeeded; deploy failed due to Output Directory — see below).
+- **Dashboard:** https://vercel.com/chain-havens-projects/auto-stock
+- **Production URL:** https://auto-stock.vercel.app
+- **Status:** DEPLOYED ✓
 
-**To get a working production URL:**
+### Configuration (already set)
 
-1. In [Vercel Dashboard](https://vercel.com/chain-havens-projects/auto-stock) → **Settings** → **General**:
-   - Set **Root Directory** to `apps/web` and save.
-2. **Settings** → **Environment Variables** — add:
-   - `NEXT_PUBLIC_SUPABASE_URL` = `https://xyozzvvfemvudtfauvss.supabase.co`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = (anon key above)
-   - Optional: Sentry DSN, org, project.
-3. **Redeploy:** Deployments → … on latest → **Redeploy**, or push a new commit to `main`.
+| Setting | Value |
+|---------|-------|
+| Root Directory | `apps/web` |
+| Framework | Next.js |
+| Node.js Version | 24.x |
 
-After that, the production URL will be https://auto-stock-*.vercel.app or your custom domain.
+### Environment Variables (already set)
+
+| Name | Environments |
+|------|--------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Production, Preview, Development |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Production, Preview, Development |
 
 ## 4. Builds (verified)
 
-- `pnpm --filter web build` — **succeeds**
-- `pnpm plugin:build` — **succeeds** (artifact: `apps/woo-plugin/dist/merchant-connector.zip`)
+- `pnpm run lint` — **passes** ✓
+- `pnpm run typecheck` — **passes** ✓
+- `pnpm run build` — **passes** ✓
+- `pnpm plugin:build` — **passes** ✓ (artifact: `apps/woo-plugin/dist/merchant-connector.zip`)
 
-## 5. One-time cost
+## 5. Security
 
-- Supabase project: **$10/month** (confirmed at creation).
+- Next.js updated to **15.5.11** (patched for CVE-2025-66478)
+- Sentry source maps deleted after upload
+- RLS policies applied to all tables
+
+## 6. Costs
+
+- Supabase project: **$10/month**
+- Vercel: Free tier (Hobby)

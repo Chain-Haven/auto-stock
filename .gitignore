@@ -12,3 +12,4 @@ test-results
 playwright/.cache
 .vercel
 *.tsbuildinfo
+.env*.local
