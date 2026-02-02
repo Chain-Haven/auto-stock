@@ -1,0 +1,12 @@
+---
+description: Testing and milestone discipline
+alwaysApply: true
+---
+
+# Testing and Milestones
+
+- Run the smallest relevant test after every meaningful change.
+- At milestone end, run full `pnpm verify` (lint + typecheck + unit + E2E). Fix until green.
+- Do not start the next milestone until the current one is GREEN.
+- Execute milestones M1 through M10 in order; do not skip.
+- Do not remove endpoints or change existing contracts in breaking ways; extend only.

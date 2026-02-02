@@ -1,0 +1,24 @@
+{
+  "name": "auto-stock",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "lint": "pnpm -r run lint",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "test:watch": "pnpm --filter web test:watch",
+    "e2e": "pnpm --filter web e2e",
+    "e2e:ui": "pnpm --filter web e2e:ui",
+    "verify": "pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run e2e",
+    "plugin:build": "pnpm --filter woo-plugin build",
+    "smoke:public": "pnpm --filter web smoke:public"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.14.2"
+}

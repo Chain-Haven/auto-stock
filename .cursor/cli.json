@@ -1,0 +1,12 @@
+{
+  "allowlist": [
+    "pnpm",
+    "node",
+    "git",
+    "supabase",
+    "vercel",
+    "npx",
+    "pwsh",
+    "powershell"
+  ]
+}

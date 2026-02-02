@@ -1,0 +1,11 @@
+---
+description: Windows/PowerShell safety and security baseline
+alwaysApply: true
+---
+
+# Windows and Security
+
+- Use PowerShell-safe commands only: no bash env var syntax (e.g. use `$env:VAR` or cross-env in scripts).
+- Supabase: Auth + RLS on every table; client never uses service_role.
+- Webhook/plugin endpoints: signature verification, replay protection, idempotency.
+- Secrets: encrypted at rest; master key in Vercel env vars only.

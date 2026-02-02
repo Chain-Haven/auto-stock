@@ -1,0 +1,11 @@
+{
+  "name": "woo-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/zip.js"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1"
+  }
+}
