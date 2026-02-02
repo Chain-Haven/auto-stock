@@ -32,28 +32,20 @@ export default function SignupPage() {
     e.preventDefault();
     setError(null);
     setLoading(true);
-    const { data: authData, error: signUpError } = await supabase.auth.signUp({
+    
+    // Sign up - profile is auto-created via database trigger
+    const { error: signUpError } = await supabase.auth.signUp({
       email,
       password,
       options: { data: { full_name: fullName, role } },
     });
+    
     setLoading(false);
     if (signUpError) {
       setError(signUpError.message);
       return;
     }
-    if (authData.user) {
-      const { error: profileError } = await supabase.from("profiles").upsert({
-        id: authData.user.id,
-        full_name: fullName,
-        role,
-        updated_at: new Date().toISOString(),
-      });
-      if (profileError) {
-        setError(profileError.message);
-        return;
-      }
-    }
+    
     router.push("/dashboard");
     router.refresh();
   }
